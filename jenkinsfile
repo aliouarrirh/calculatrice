@@ -7,6 +7,12 @@ pipeline {
 
     stages {
 
+        stage('Arreter lancien serveur') {
+            steps {
+                bat 'taskkill /F /IM node.exe /T || exit 0'
+            }
+        }
+
         stage('Cloner le code') {
             steps {
                 echo 'Clonage du repository...'
@@ -39,10 +45,7 @@ pipeline {
 
     post {
         success {
-            echo 'Pipeline terminé avec succès ✅'
-        }
-        failure {
-            echo 'Erreur dans le pipeline ❌'
+            echo 'Bravo, déploiement réussi !'
         }
     }
 }
