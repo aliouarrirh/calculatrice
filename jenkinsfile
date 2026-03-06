@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+
+    tools {
+        nodejs 'nodejs'
+    }
+
+    stages {
+
+        stage('Cloner le code') {
+            steps {
+                echo 'Clonage du repository...'
+                checkout scm
+            }
+        }
+
+        stage('Installer les dépendances') {
+            steps {
+                echo 'Installation des dépendances npm...'
+                bat 'npm install'
+            }
+        }
+
+        stage('Lancer les tests') {
+            steps {
+                echo 'Lancement des tests...'
+                bat 'npm test'
+            }
+        }
+
+        stage('Démarrer le serveur') {
+            steps {
+                echo 'Démarrage du serveur...'
+                bat 'node server.js &'
+            }
+        }
+
+    }
+
+    post {
+        success {
+            echo 'Pipeline terminé avec succès ✅'
+        }
+        failure {
+            echo 'Erreur dans le pipeline ❌'
+        }
+    }
+}
