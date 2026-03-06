@@ -26,6 +26,7 @@ app.get("/calculer", (req, res) => {
   else if (op === "mod") resultat = b !== 0 ? a % b : "Division par zero";
   else if (op === "sqrt")
     resultat = a >= 0 ? Math.sqrt(a) : "Nombre negatif impossible";
+  else if (op === "sin") resultat = Math.sin(a);
   else resultat = "Opération inconnue";
 
   res.json({ resultat });

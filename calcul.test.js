@@ -45,3 +45,8 @@ test("Racine carree nombre negatif", async () => {
   const res = await request(app).get("/calculer?a=-4&b=0&op=sqrt");
   expect(res.body.resultat).toBe("Nombre negatif impossible");
 });
+
+test("sinus ", async () => {
+  const res = await request(app).get("/calculer?a=0&b=0&op=sin");
+  expect(res.body.resultat).toBe(0);
+});
