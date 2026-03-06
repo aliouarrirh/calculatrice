@@ -31,8 +31,9 @@ app.get("/calculer", (req, res) => {
   res.json({ resultat });
 });
 
-app.listen(PORT, () => {
-  console.log(`Serveur lancé sur http://localhost:${PORT}`);
-});
-
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Serveur lancé sur http://localhost:${PORT}`);
+  });
+}
 module.exports = app;
