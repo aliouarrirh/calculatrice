@@ -23,6 +23,7 @@ app.get("/calculer", (req, res) => {
   else if (op === "sub") resultat = a - b;
   else if (op === "mul") resultat = a * b;
   else if (op === "div") resultat = b !== 0 ? a / b : "Division par zéro";
+  else if (op === "mod") resultat = b !== 0 ? a % b : "Division par zéro";
   else resultat = "Opération inconnue";
 
   res.json({ resultat });

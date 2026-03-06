@@ -4,8 +4,8 @@ function calculer(a, b, op) {
   if (op === "add") return a + b;
   if (op === "sub") return a - b;
   if (op === "mul") return a * b;
-  if (op === "div") return b !== 0 ? a / b : "Division par zéro";
-  return "Opération inconnue";
+  if (op === "div") return b !== 0 ? a / b : "Division par zero";
+  return "Operation inconnue";
 }
 
 test("Addition : 2 + 3 = 5", () => {
@@ -24,6 +24,14 @@ test("Division : 10 / 2 = 5", () => {
   expect(calculer(10, 2, "div")).toBe(5);
 });
 
-test("Division par zéro", () => {
-  expect(calculer(10, 0, "div")).toBe("Division par zéro");
+test("Division par zero", () => {
+  expect(calculer(10, 0, "div")).toBe("Division par zero");
+});
+
+test("mod : 10 % 2 = 0", () => {
+  expect(calculer(10, 2, "mod")).toBe(0);
+});
+
+test("Division par zero", () => {
+  expect(calculer(10, 0, "mod")).toBe("Division par zero");
 });
