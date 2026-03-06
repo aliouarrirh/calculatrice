@@ -22,8 +22,10 @@ app.get("/calculer", (req, res) => {
   if (op === "add") resultat = a + b;
   else if (op === "sub") resultat = a - b;
   else if (op === "mul") resultat = a * b;
-  else if (op === "div") resultat = b !== 0 ? a / b : "Division par zéro";
-  else if (op === "mod") resultat = b !== 0 ? a % b : "Division par zéro";
+  else if (op === "div") resultat = b !== 0 ? a / b : "Division par zero";
+  else if (op === "mod") resultat = b !== 0 ? a % b : "Division par zero";
+  else if (op === "sqrt")
+    resultat = a >= 0 ? Math.sqrt(a) : "Nombre negatif impossible";
   else resultat = "Opération inconnue";
 
   res.json({ resultat });
@@ -32,3 +34,5 @@ app.get("/calculer", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Serveur lancé sur http://localhost:${PORT}`);
 });
+
+module.exports = app;
