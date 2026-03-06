@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calculatrice</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      .calc {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      input {
+        width: 200px;
+        padding: 8px;
+        margin: 5px;
+        font-size: 16px;
+      }
+      button {
+        padding: 8px 16px;
+        margin: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      #resultat {
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calc">
+      <h2>Calculatrice</h2>
+      <input type="number" id="a" placeholder="Nombre 1" />
+      <input type="number" id="b" placeholder="Nombre 2" />
+      <br />
+      <button onclick="calculer('add')">+</button>
+      <button onclick="calculer('sub')">-</button>
+      <button onclick="calculer('mul')">×</button>
+      <button onclick="calculer('div')">÷</button>
+      <div id="resultat">Résultat : -</div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
